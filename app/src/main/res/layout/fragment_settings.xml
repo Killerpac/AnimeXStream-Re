@@ -88,7 +88,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingBottom="15dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/logo"

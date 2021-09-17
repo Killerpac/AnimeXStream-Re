@@ -71,7 +71,7 @@ class VideoPlayerFragment : Fragment(), View.OnClickListener, Player.EventListen
     private val DEFAULT_MEDIA_VOLUME = 1f
     private val DUCK_MEDIA_VOLUME = 0.2f
     private lateinit var handler: Handler
-    private var isFullScreen = false
+    private var isFullScreen = 0
     private var isVideoPlaying: Boolean = false
 
     private val speeds = arrayOf(0.25f, 0.5f, 1f, 1.25f, 1.5f, 2f)
@@ -155,7 +155,7 @@ class VideoPlayerFragment : Fragment(), View.OnClickListener, Player.EventListen
                 HlsDataSourceFactory {
                     val dataSource: HttpDataSource =
                         DefaultHttpDataSource(sergeant)
-                    dataSource.setRequestProperty("Referer", "https://streamani.io/")
+                    dataSource.setRequestProperty("Referer", "https://goload.one/")
                     dataSource
                 })
                 .setAllowChunklessPreparation(true)
@@ -237,11 +237,11 @@ class VideoPlayerFragment : Fragment(), View.OnClickListener, Player.EventListen
 
 
     private fun toggleFullView() {
-        if (isFullScreen) {
+        if (isFullScreen == 0) {
             exoPlayerFrameLayout.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
             exoPlayerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT
             player.videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT
-            isFullScreen = false
+            isFullScreen = 1
             context?.let {
                 exo_full_Screen.setImageDrawable(
                     ContextCompat.getDrawable(
@@ -251,11 +251,26 @@ class VideoPlayerFragment : Fragment(), View.OnClickListener, Player.EventListen
                 )
             }
 
-        } else {
+        } else if(isFullScreen == 1) {
+            exoPlayerFrameLayout.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
+            exoPlayerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
+            player.videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT
+            isFullScreen = 2
+            context?.let {
+                exo_full_Screen.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        it,
+                        R.drawable.ic_stretch
+                    )
+                )
+            }
+        }
+        else
+        {
             exoPlayerFrameLayout.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
             exoPlayerView.resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FILL
             player.videoScalingMode = C.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING
-            isFullScreen = true
+            isFullScreen = 0
             context?.let {
                 exo_full_Screen.setImageDrawable(
                     ContextCompat.getDrawable(

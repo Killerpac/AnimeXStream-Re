@@ -203,7 +203,7 @@ class HtmlParser {
             return try{
                 while (matcher.find()){
                   if (matcher.group(0)!!.contains("mp4")) {
-                       m3u8Url = matcher.group(0)
+                      m3u8Url = matcher.group(0)
 //                        if( matcher.group(0)!!.contains("storage.googleapis.com"))
 //                        {
 //                            m3u8Url = matcher.group(0)?.replace("storage.googleapis.com","")

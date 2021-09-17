@@ -66,7 +66,7 @@ class FavouriteFragment: Fragment(), FavouriteController.EpoxySearchAdapterCallb
 
 
     private fun setAdapters(){
-        favouriteController.spanCount = Utils.calculateNoOfColumns(context!!, 150f)
+        favouriteController.spanCount = Utils.calculateNoOfColumns(requireContext(), 150f)
         rootView.recyclerView.apply {
             layoutManager = GridLayoutManager(context, Utils.calculateNoOfColumns(context!!, 150f))
             adapter = favouriteController.adapter

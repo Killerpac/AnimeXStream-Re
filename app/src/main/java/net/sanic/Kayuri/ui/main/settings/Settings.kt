@@ -55,7 +55,6 @@ class Settings : Fragment(), View.OnClickListener {
             sharesPreference.setadvancecontrols(isChecked)
         }
     }
-
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.back -> {

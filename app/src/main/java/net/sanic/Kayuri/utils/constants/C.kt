@@ -46,15 +46,15 @@ class C {
         const val TYPE_ANIME_INFO = 1000
         const val TYPE_EPISODE_LIST = 1001
         const val M3U8_REGEX_PATTERN = "(http|https)://([\\w_-]+(?:(?:\\.[\\w_-]+)+))([\\w.,@?^=%&:/~+#-]*[\\w@?^=%&/~+#-])?"
-        const val GOOGLE_SERVER_REGEX = "\"((?:(?:https?%3A%2F%2F)(?:www\\.)?(?:\\S+)%2F|(?:https?:\\/\\/)(?:www\\.)?(?:\\S+)\\/)(?:.*)?\\.(mp4|mkv|wmv|m4v|mov|avi|flv|webm|flac|mka|m4a|aac|ogg)(?=[^.]*\$))\"gm"
+        const val GOOGLE_SERVER_REGEX = "\"(?:((?:https|http):\\/\\/)|(?:\\/)).+(?:.mp3|mp4)\"gm"
         //Anime Search Types
         const val TYPE_SEARCH_NEW = 2000
         const val TYPE_SEARCH_UPDATE = 2001
 
         //Network Requests Header
         const val USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36"
-        const val ORIGIN = "https://streamani.io"
-        const val  REFERER = "https://streamani.io"
+        const val ORIGIN = "https://gogoanime.pe/"
+        const val  REFERER = "https://gogoanime.pe/"
 
         //Realm
         const val MAX_TIME_M3U8_URL = 2 * 60 * 60 *1000
